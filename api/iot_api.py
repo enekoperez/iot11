@@ -1,5 +1,3 @@
-import sys
-
 from flask import Blueprint, request, jsonify
 
 from services.main_service import MainService
@@ -24,3 +22,4 @@ def execute():
 @iotApi.route('ender', methods=['GET'])
 def ender():
     my_main_service.ender()
+    return jsonify(message='ender done'), 200
