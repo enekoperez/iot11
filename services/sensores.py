@@ -1,6 +1,7 @@
 from time import sleep
 
 import RPi.GPIO as GPIO
+from grove.display.jhd1802 import JHD1802
 from grove.grove_light_sensor_v1_2 import GroveLightSensor
 from grove.grove_ultrasonic_ranger import GroveUltrasonicRanger
 from seeed_dht import DHT
@@ -14,14 +15,15 @@ class Sensores:
     def __init__(self):
         self.my_data_sender = DataSender()
 
-    def led(self):  # NO FUNCIONA!!!
-        print('EMPIEZA')
-        GPIO.setmode(GPIO.BCM)  # Definimos BCM como nomenclatura de los pines
-        led = config.Config.LED
-        GPIO.setup(led, GPIO.OUT)  # Definimos el pin 24 como salida (led/buzzer)
-        GPIO.output(led, GPIO.LOW)
-        GPIO.output(led, GPIO.LOW)
-        print('ACABA')
+    def lcd(self, message1=None, message2=None):
+        # Grove - 16x2 LCD(White on Blue) connected to I2C port
+        lcd = JHD1802()
+
+        lcd.setCursor(0, 0)
+        lcd.write(message1)
+
+        lcd.setCursor(1, 0)
+        lcd.write(message2)
 
     def buzz(self, out):
         GPIO.setwarnings(False)
