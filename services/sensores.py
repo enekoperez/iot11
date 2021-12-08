@@ -15,7 +15,7 @@ class Sensores:
     def __init__(self):
         self.my_data_sender = DataSender()
 
-    def lcd(self, message1=None, message2=None):
+    def lcd(self, message1="", message2=""):
         # Grove - 16x2 LCD(White on Blue) connected to I2C port
         lcd = JHD1802()
 
