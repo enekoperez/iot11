@@ -75,16 +75,15 @@ class Sensores:
         sensor = DHT('11', config.Config.TEMP_AND_HUM)
         humi, temp = sensor.read()
 
+        message1 = ('Temperature:', temp, 'C')
+        message2 = ('Humidity:', humi, '%')
+
         if temp > int(conf_temp) and humi > int(conf_humi):
-            message1 = ('temp(C):', temp)
-            message2 = ('humi(%):', humi)
             self.lcd(message1=str(message1), message2=str(message2))
         elif temp > int(conf_temp):
-            message = ('temp(C):', temp)
-            self.lcd(message1=str(message))
+            self.lcd(message1=str(message1))
         elif humi > int(conf_humi):
-            message = ('humi(%):', humi)
-            self.lcd(message1=str(message))
+            self.lcd(message1=str(message2))
 
         self.my_data_sender.send_data(table_name='temp_hum_data', key='key', value='value',
                                       payload='temperature=' + str(temp) + ',humidity=' + str(humi))
