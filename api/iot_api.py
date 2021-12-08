@@ -20,6 +20,7 @@ def execute():
         my_main_service.main(request.json)
         return jsonify(message='ok'), 200
 
+
 @iotApi.route('exit', methods=['GET'])
-def exit():
-    sys.exit()
+def exit_method():
+    exit()
