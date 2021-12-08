@@ -75,7 +75,7 @@ class Sensores:
         sensor = DHT('11', config.Config.TEMP_AND_HUM)
         humi, temp = sensor.read()
 
-        if temp > int(conf_temp) & humi > int(conf_humi):
+        if temp > int(conf_temp) and humi > int(conf_humi):
             message1 = ('temp(C):', temp)
             message2 = ('humi(%):', humi)
             self.lcd(message1=str(message1), message2=str(message2))
