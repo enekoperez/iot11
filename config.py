@@ -18,3 +18,4 @@ class Config(object):
     LIGHT = 0
     TEMP_AND_HUM = 5
     LED = 22
+    # LCD = 12C
