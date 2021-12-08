@@ -9,8 +9,11 @@ def main():
     # Grove - 16x2 LCD(White on Blue) connected to I2C port
     lcd = JHD1802()
 
-    lcd.setCursor(3, 2)
-    lcd.write('7 cristiano ronaldo 7')
+    lcd.setCursor(0, 0)
+    lcd.write('CRISTIANO')
+
+    lcd.setCursor(1, 0)
+    lcd.write('RONALDO')
 
     print('application exiting...')
 
