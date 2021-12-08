@@ -21,6 +21,6 @@ def execute():
         return jsonify(message='ok'), 200
 
 
-@iotApi.route('exit', methods=['GET'])
-def exit_method():
-    exit()
+@iotApi.route('ender', methods=['GET'])
+def ender():
+    my_main_service.ender()
