@@ -1,3 +1,5 @@
+import sys
+
 from flask import Blueprint, request, jsonify
 
 from services.main_service import MainService
@@ -17,3 +19,7 @@ def execute():
     if request.is_json:
         my_main_service.main(request.json)
         return jsonify(message='ok'), 200
+
+@iotApi.route('exit', methods=['GET'])
+def execute():
+    sys.exit()
