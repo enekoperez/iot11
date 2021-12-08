@@ -3,14 +3,12 @@ import bluetooth
 
 
 def main():
-    # Bluetooth stuff
-    bd_addr = "88:46:04:59:ae:37"
-    port = 1
-    sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-    sock.connect((bd_addr, port))
 
-    # 0x1X for straight forward and 0x11 for very slow to 0x1F for fastest
-    sock.send("\x1A")
+    nearby_devices = bluetooth.discover_devices(lookup_names=True)
+    print("Found {} devices.".format(len(nearby_devices)))
+
+    for addr, name in nearby_devices:
+        print("  {} - {}".format(addr, name))
 
 
 if __name__ == '__main__':
