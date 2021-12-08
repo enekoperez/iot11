@@ -21,5 +21,5 @@ def execute():
         return jsonify(message='ok'), 200
 
 @iotApi.route('exit', methods=['GET'])
-def execute():
+def exit():
     sys.exit()
