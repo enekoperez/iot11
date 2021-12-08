@@ -11,7 +11,6 @@ class MainService:
         self.execution = False
 
     def main(self, request):  # DUDA, ¿ se podra poner aqui =None ?
-        self.execution = True
         conf_cerca = request['conf_distance_cerca']
         conf_lejos = request['conf_distance_lejos']
         conf_luz = request['conf_luz']
@@ -19,6 +18,7 @@ class MainService:
         conf_humi = request['conf_humi']
 
         print('Running MainService.main ...')
+        self.execution = True
         while self.execution:
             self.my_sensores.distance(conf_cerca=conf_cerca, conf_lejos=conf_lejos)
             self.my_sensores.light(conf_luz=conf_luz)
@@ -26,3 +26,4 @@ class MainService:
 
         if self.execution is False:
             print('Finished MainService.main ...')
+            self.my_sensores.lcd(message1="", message2="")
