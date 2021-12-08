@@ -75,7 +75,7 @@ class Sensores:
         sensor = DHT('11', config.Config.TEMP_AND_HUM)
         humi, temp = sensor.read()
 
-        message1 = 'Temperature: {}ºC'.format(temp)
+        message1 = 'Temperature: {}C'.format(temp)
         message2 = 'Humidity: {}%'.format(humi)
 
         if temp > int(conf_temp) and humi > int(conf_humi):
