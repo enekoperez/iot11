@@ -2,7 +2,7 @@ import bluetooth
 
 
 def main():
-    target_name = "My Phone"
+    target_name = "Redmi_K40"
     target_address = None
 
     nearby_devices = bluetooth.discover_devices()
