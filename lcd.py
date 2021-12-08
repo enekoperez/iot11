@@ -10,10 +10,10 @@ def main():
     lcd = JHD1802()
 
     lcd.setCursor(0, 0)
-    lcd.write('CRISTIANO')
+    lcd.write('')
 
     lcd.setCursor(1, 0)
-    lcd.write('RONALDO')
+    lcd.write('')
 
     print('application exiting...')
 
