@@ -23,9 +23,7 @@ class DataSender:
 
         self.super_payload += payload
         self.n_super_payload = self.n_super_payload+1
-        print(self.n_super_payload)
         if self.n_super_payload == self.number_of_apps:
-            print(self.super_payload)
             r = requests.post(self.url, params=self.params, data=str(self.super_payload))
             print(r)
             self.super_payload = ""

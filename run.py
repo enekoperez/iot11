@@ -11,7 +11,6 @@ def get_flask_app() -> app.Flask:
     flask_app = Flask(__name__)
     flask_app.config.from_object("config.Config")
     routes.init_routes(flask_app)
-    # my_main_service.main()  # ¿aqui ira bien?
     return flask_app
 
 

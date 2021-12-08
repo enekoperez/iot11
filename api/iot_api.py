@@ -9,7 +9,7 @@ my_main_service = MainService()
 
 @iotApi.route('example', methods=['GET'])
 def example():
-    return jsonify(message='ok'), 200
+    return jsonify(message='example working ok'), 200
 
 
 @iotApi.route('execute', methods=['GET'])
