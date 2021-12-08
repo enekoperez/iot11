@@ -63,7 +63,7 @@ class Sensores:
         light = sensor.light
 
         if light > int(conf_luz):
-            message = ('light value {}'.format(light))
+            message = 'Light value {}'.format(light)
             self.lcd(message1=str(message))
 
         self.my_data_sender.send_data(table_name='light_data', key='key', value='value',
@@ -75,8 +75,8 @@ class Sensores:
         sensor = DHT('11', config.Config.TEMP_AND_HUM)
         humi, temp = sensor.read()
 
-        message1 = ('Temperature:', temp, 'C')
-        message2 = ('Humidity:', humi, '%')
+        message1 = 'Temperature:', temp, 'C'
+        message2 = 'Humidity:', humi, '%'
 
         if temp > int(conf_temp) and humi > int(conf_humi):
             self.lcd(message1=str(message1), message2=str(message2))
