@@ -16,7 +16,7 @@ class Sensores:
     def __init__(self):
         self.my_data_sender = DataSender()
 
-    def led(self, state=False):
+    def led(self, state):
         ledbtn = GroveLedButton(config.Config.LED)
 
         if state is True:
