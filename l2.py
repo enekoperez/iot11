@@ -5,6 +5,8 @@ import time
 from grove.button import Button
 from grove.grove_ryb_led_button import GroveLedButton
 
+import RPi.GPIO as GPIO
+
 
 # from mraa import getGpioLookup
 # from upm import pyupm_buzzer as upmBuzzer
@@ -30,8 +32,13 @@ def main():
 
     button.on_event = on_event
 
-    while True:
-        time.sleep(1)
+
+    # the rest of your code would go here
+
+    # when your code ends, the last line before the program exits would be...
+    GPIO.cleanup()
+
+    # remember, a program doesn't necessarily exit at the last line!
 
 
 if __name__ == '__main__':
