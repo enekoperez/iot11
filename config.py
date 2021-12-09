@@ -17,5 +17,5 @@ class Config(object):
     DISTANCE = 16
     LIGHT = 0
     TEMP_AND_HUM = 5
-    LED = 22
+    LED = 18
     # LCD = 12C

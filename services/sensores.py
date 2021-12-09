@@ -3,6 +3,7 @@ from time import sleep
 import RPi.GPIO as GPIO
 from grove.display.jhd1802 import JHD1802
 from grove.grove_light_sensor_v1_2 import GroveLightSensor
+from grove.grove_ryb_led_button import GroveLedButton
 from grove.grove_ultrasonic_ranger import GroveUltrasonicRanger
 from seeed_dht import DHT
 
@@ -15,15 +16,13 @@ class Sensores:
     def __init__(self):
         self.my_data_sender = DataSender()
 
-    def lcd(self, message1="", message2=""):
-        # Grove - 16x2 LCD(White on Blue) connected to I2C port
-        lcd = JHD1802()
+    def led(self, state=False):
+        ledbtn = GroveLedButton(config.Config.LED)
 
-        lcd.setCursor(0, 0)
-        lcd.write(message1)
-
-        lcd.setCursor(1, 0)
-        lcd.write(message2)
+        if state is True:
+            ledbtn.led.light(True)
+        elif state is False:
+            ledbtn.led.light(False)
 
     def buzz(self, out):
         GPIO.setwarnings(False)
@@ -39,6 +38,16 @@ class Sensores:
             sleep(0.25)
         elif out == "distance_lejos":  # low
             GPIO.output(buzzer, GPIO.LOW)
+
+    def lcd(self, message1="", message2=""):
+        # Grove - 16x2 LCD(White on Blue) connected to I2C port
+        lcd = JHD1802()
+
+        lcd.setCursor(0, 0)
+        lcd.write(message1)
+
+        lcd.setCursor(1, 0)
+        lcd.write(message2)
 
     def distance(self, conf_cerca, conf_lejos):
         # Grove - Ultrasonic Ranger connected to port D16
@@ -64,7 +73,10 @@ class Sensores:
 
         if light > int(conf_luz):
             message = 'Light value {}'.format(light)
-            self.lcd(message1=str(message))
+            # self.lcd(message1=str(message))
+            self.led(state=False)
+        elif light < int(conf_luz):
+            self.led(state=True)
 
         self.my_data_sender.send_data(table_name='light_data', key='key', value='value',
                                       payload='light=' + str(light))
