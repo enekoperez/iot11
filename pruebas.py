@@ -13,13 +13,31 @@ params = {"db": db, "u": u, "p": p}
 
 
 def main():
-    print(1)
-
     payload = "t3,k=v t=22.5"
     print(payload)
     r = requests.post(url, params=params, data=payload)
     print(r)
 
+
+# !/usr/bin/env python
+
+import time
+from grove.grove_ryb_led_button import GroveLedButton
+
+
+def led():
+    ledbtn = GroveLedButton(5)
+
+    while True:
+        ledbtn.led.light(True)
+        time.sleep(1)
+
+        ledbtn.led.light(False)
+        time.sleep(1)
+
+
+if __name__ == '__main__':
+    led()
 
 if __name__ == '__main__':
     main()
