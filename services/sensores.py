@@ -17,6 +17,7 @@ class Sensores:
         self.my_data_sender = DataSender()
 
     def led(self, state):
+        GPIO.setwarnings(False)
         ledbtn = GroveLedButton(config.Config.LED)
 
         if state is True:
