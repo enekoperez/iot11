@@ -59,11 +59,11 @@ class Sensores:
         distance = sensor.get_distance()
 
         if distance < int(conf_cerca):
-            self.buzz("distance_cerca")
+            self.buzz(out="distance_cerca")
         elif int(conf_cerca) < distance < int(conf_lejos):
-            self.buzz("distance_media")
+            self.buzz(out="distance_media")
         elif distance > int(conf_lejos):
-            self.buzz("distance_lejos")
+            self.buzz(out="distance_lejos")
 
         self.my_data_sender.send_data(table_name='distance_data', key='key', value='value',
                                       payload='distance=' + str(distance))

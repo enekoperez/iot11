@@ -27,3 +27,5 @@ class MainService:
         if self.execution is False:
             print('Finished MainService.main ...')
             self.my_sensores.lcd(message1="", message2="")
+            self.my_sensores.led(state=False)
+            self.my_sensores.buzz(out="distance_lejos")

@@ -4,7 +4,7 @@ class Config(object):
 
     # GENERAL
     PORT = 3000
-    APPS = 2  # 3
+    APPS = 3
 
     # CORLYSIS
     CORLYSIS_URL = "https://corlysis.com:8086/write"
