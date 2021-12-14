@@ -15,6 +15,7 @@ import config
 def main():
     # Grove - LED Button connected to port D5
     button = GroveLedButton(config.Config.LED)
+    gpio.set
 
     # Grove - Buzzer connected to PWM port
     # buzzer = upmBuzzer.Buzzer(getGpioLookup('GPIO12'))

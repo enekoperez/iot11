@@ -16,16 +16,20 @@ class Sensores:
     def __init__(self):
         self.my_data_sender = DataSender()
 
-    def led(self, state):
+    def led2(self, state):
         ledbtn = GroveLedButton(config.Config.LED)
 
-        GPIO.remove_event_detect(18)
-        # GPIO.remove_event_detect(ledbtn)
+        ledbtn.led.light(state)
+
+    def led(self, state):
+        GPIO.setmode(GPIO.BCM)
+        led = config.Config.LED
+        GPIO.setup(led, GPIO.OUT)
 
         if state is True:
-            ledbtn.led.light(True)
+            led.led.light(True)
         elif state is False:
-            ledbtn.led.light(False)
+            led.led.light(False)
 
     def buzz(self, out):
         GPIO.setmode(GPIO.BCM)
