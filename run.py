@@ -6,7 +6,7 @@ from services.main_service import MainService
 
 my_main_service = MainService()
 
-
+#pruebaJokin
 def get_flask_app() -> app.Flask:
     flask_app = Flask(__name__)
     flask_app.config.from_object("config.Config")
