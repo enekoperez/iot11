@@ -57,4 +57,4 @@ def buzzer2():
 
 
 if __name__ == '__main__':
-    buzzer2()
+    led()
