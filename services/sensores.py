@@ -18,6 +18,7 @@ class Sensores:
 
     def led(self, state):
         GPIO.setwarnings(False)
+        GPIO.cleanup()
         ledbtn = GroveLedButton(config.Config.LED)
 
         if state is True:
