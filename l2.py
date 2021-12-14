@@ -32,15 +32,15 @@ def main():
 
     button.on_event = on_event
 
-    # only add the detection call once!
-    gpio.add_event_detect(self.pin, RPi.GPIO.BOTH, self._on_event)
+    gpio.add_event_detect(config.Config.LED, gpio.BOTH, on_event)
 
-    while True:
-        try:
-            # do any other processing, while waiting for the edge detection
-            time.sleep(1)  # sleep 1 sec
-        finally:
-            gpio.cleanup()
+
+    try:
+        # do any other processing, while waiting for the edge detection
+        time.sleep(1)  # sleep 1 sec
+    finally:
+        gpio.cleanup()
+        GPIO.cleanup()
 
 
 if __name__ == '__main__':
