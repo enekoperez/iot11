@@ -27,9 +27,9 @@ class Sensores:
         GPIO.setup(led, GPIO.OUT)
 
         if state is True:
-            led.led.light(True)
+            led.light(True)
         elif state is False:
-            led.led.light(False)
+            led.light(False)
 
     def buzz(self, out):
         GPIO.setmode(GPIO.BCM)
