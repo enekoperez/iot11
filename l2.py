@@ -16,7 +16,6 @@ def main():
     # Grove - LED Button connected to port D5
     button = GroveLedButton(config.Config.LED)
 
-    gpio.setmode(gpio.BOARD)
     gpio.setup(config.Config.LED, gpio.IN, pull_up_down=gpio.PUD_DOWN)
 
     # Grove - Buzzer connected to PWM port
