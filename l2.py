@@ -37,6 +37,7 @@ def main():
 
     # when your code ends, the last line before the program exits would be...
     GPIO.cleanup()
+    gpio.cleanup()
 
     # remember, a program doesn't necessarily exit at the last line!
 
