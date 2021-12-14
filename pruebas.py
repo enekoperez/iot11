@@ -19,22 +19,5 @@ def main():
     print(r)
 
 
-# !/usr/bin/env python
-
-from grove.grove_ryb_led_button import GroveLedButton
-import time
-
-
-def led():
-    ledbtn = GroveLedButton(5)
-
-    while True:
-        ledbtn.led.light(True)
-        time.sleep(1)
-
-        ledbtn.led.light(False)
-        time.sleep(1)
-
-
 if __name__ == '__main__':
-    led()
+    main()

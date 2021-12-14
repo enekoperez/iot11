@@ -17,8 +17,6 @@ class Sensores:
         self.my_data_sender = DataSender()
 
     def led(self, state):
-        GPIO.setwarnings(False)
-        # GPIO.cleanup()
         ledbtn = GroveLedButton(config.Config.LED)
 
         if state is True:
@@ -27,22 +25,21 @@ class Sensores:
             ledbtn.led.light(False)
 
     def buzz(self, out):
-        GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         buzzer = config.Config.BUZZER
         GPIO.setup(buzzer, GPIO.OUT)
-        if out == "distance_cerca":  # high
+
+        if out == "distance_cerca":
             GPIO.output(buzzer, GPIO.HIGH)
-        elif out == "distance_media":  # medium
+        elif out == "distance_media":
             GPIO.output(buzzer, GPIO.HIGH)
             sleep(0.25)
             GPIO.output(buzzer, GPIO.LOW)
             sleep(0.25)
-        elif out == "distance_lejos":  # low
+        elif out == "distance_lejos":
             GPIO.output(buzzer, GPIO.LOW)
 
     def lcd(self, message1="", message2=""):
-        # Grove - 16x2 LCD(White on Blue) connected to I2C port
         lcd = JHD1802()
 
         lcd.setCursor(0, 0)
@@ -52,11 +49,9 @@ class Sensores:
         lcd.write(message2)
 
     def distance(self, conf_cerca, conf_lejos):
-        # Grove - Ultrasonic Ranger connected to port D16
         sensor = GroveUltrasonicRanger(config.Config.DISTANCE)
-        # while True:
         distance = sensor.get_distance()
-        # print('{} cm'.format(distance))
+
         if distance < int(conf_cerca):
             self.buzz("distance_cerca")
         elif int(conf_cerca) < distance < int(conf_lejos):
@@ -69,13 +64,10 @@ class Sensores:
         return {'distance': distance}
 
     def light(self, conf_luz):
-        # Grove - Light Sensor connected to port A0  <- # ahora esta en el 5
         sensor = GroveLightSensor(config.Config.LIGHT)
         light = sensor.light
 
         if light > int(conf_luz):
-            message = 'Light value {}'.format(light)
-            # self.lcd(message1=str(message))
             self.led(state=False)
         elif light < int(conf_luz):
             self.led(state=True)
@@ -85,7 +77,6 @@ class Sensores:
         return {'light': light}
 
     def temp_and_humi(self, conf_temp, conf_humi):
-        # Grove - Sensor de temperatura y humedad DTH11 conectado a la GPIO5
         sensor = DHT('11', config.Config.TEMP_AND_HUM)
         humi, temp = sensor.read()
 

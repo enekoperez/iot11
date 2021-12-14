@@ -1,11 +1,8 @@
 # !/usr/bin/env python
 
-import time
-
+import RPi.GPIO as GPIO
 from grove.button import Button
 from grove.grove_ryb_led_button import GroveLedButton
-
-import RPi.GPIO as GPIO
 
 
 # from mraa import getGpioLookup
@@ -32,12 +29,10 @@ def main():
 
     button.on_event = on_event
 
-
     # the rest of your code would go here
 
     # when your code ends, the last line before the program exits would be...
     GPIO.cleanup()
-    gpio.cleanup()
 
     # remember, a program doesn't necessarily exit at the last line!
 

@@ -7,11 +7,6 @@ iotApi = Blueprint('iotApi', __name__)
 my_main_service = MainService()
 
 
-@iotApi.route('example', methods=['GET'])
-def example():
-    return jsonify(message='example working ok'), 200
-
-
 @iotApi.route('execute', methods=['GET'])
 def execute():
     if request.is_json:
