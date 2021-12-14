@@ -11,6 +11,8 @@ class MainService:
         self.execution = False
 
     def main(self, request):  # DUDA, ¿ se podra poner aqui =None ?
+        GPIO.cleanup()
+
         conf_cerca = request['conf_distance_cerca']
         conf_lejos = request['conf_distance_lejos']
         conf_luz = request['conf_luz']

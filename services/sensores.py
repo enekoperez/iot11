@@ -69,7 +69,7 @@ class Sensores:
         return {'distance': distance}
 
     def light(self, conf_luz):
-        # Grove - Light Sensor connected to port A0
+        # Grove - Light Sensor connected to port A0  <- # ahora esta en el 5
         sensor = GroveLightSensor(config.Config.LIGHT)
         light = sensor.light
 
