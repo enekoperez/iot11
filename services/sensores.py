@@ -18,7 +18,6 @@ class Sensores:
 
     def led2(self, state):
         ledbtn = GroveLedButton(config.Config.LED)
-
         ledbtn.led.light(state)
 
     def led(self, state):
