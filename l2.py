@@ -32,9 +32,8 @@ def main():
 
     button.on_event = on_event
 
-    gpio.shutdown()
-
-    gpio.unProvisionPin(config.Config.LED)
+    # only add the detection call once!
+    RPi.GPIO.add_event_detect(self.pin, RPi.GPIO.BOTH, self._on_event)
 
     while True:
         try:
