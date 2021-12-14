@@ -19,6 +19,9 @@ class Sensores:
     def led(self, state):
         ledbtn = GroveLedButton(18)
 
+        GPIO.remove_event_detect(18)
+        GPIO.remove_event_detect(ledbtn)
+
         if state is True:
             ledbtn.led.light(True)
         elif state is False:
