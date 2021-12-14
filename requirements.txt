@@ -1,0 +1,3 @@
+Flask~=1.1.4
+grove~=0.0.13
+requests~=2.22.0
