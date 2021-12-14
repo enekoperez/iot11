@@ -29,7 +29,7 @@ def main():
             button.led.light(False)
             # buzzer.playSound(upmBuzzer.BUZZER_DO, 1000000)
 
-    button.on_event = on_event
+    button.on_event = None
 
     while True:
         time.sleep(1)
