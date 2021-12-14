@@ -1,5 +1,5 @@
 from services.sensores import Sensores
-
+import RPi.GPIO as GPIO
 
 class MainService:
 
