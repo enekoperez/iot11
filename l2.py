@@ -33,7 +33,7 @@ def main():
     button.on_event = on_event
 
     # only add the detection call once!
-    gpio.add_event_detect(config.Config.LED, gpio.RISING, callback=on_event, bouncetime=200)
+    gpio.add_event_detect(18, gpio.RISING, callback=on_event, bouncetime=200)
 
     while True:
         try:
