@@ -16,6 +16,9 @@ def main():
     # Grove - LED Button connected to port D5
     button = GroveLedButton(config.Config.LED)
 
+    gpio.setmode(gpio.BOARD)
+    gpio.setup(config.Config.LED, gpio.IN, pull_up_down=gpio.PUD_DOWN)
+
     # Grove - Buzzer connected to PWM port
     # buzzer = upmBuzzer.Buzzer(getGpioLookup('GPIO12'))
 
@@ -33,7 +36,7 @@ def main():
     button.on_event = on_event
 
     # only add the detection call once!
-    gpio.add_event_detect(18, gpio.RISING, callback=on_event, bouncetime=200)
+    gpio.add_event_detect(config.Config.LED, gpio.RISING, callback=on_event, bouncetime=200)
 
     while True:
         try:
