@@ -54,7 +54,7 @@ class Sensores:
         lcd.setCursor(1, 0)
         lcd.write(message2)
 
-    def distance(self, conf_cerca, conf_lejos):
+    async def distance(self, conf_cerca, conf_lejos):
         sensor = GroveUltrasonicRanger(config.Config.DISTANCE)
         distance = sensor.get_distance()
 
@@ -69,7 +69,7 @@ class Sensores:
                                       payload='distance=' + str(distance))
         return {'distance': distance}
 
-    def light(self, conf_luz):
+    async def light(self, conf_luz):
         sensor = GroveLightSensor(config.Config.LIGHT)
         light = sensor.light
 
@@ -82,7 +82,7 @@ class Sensores:
                                       payload='light=' + str(light))
         return {'light': light}
 
-    def temp_and_humi(self, conf_temp, conf_humi):
+    async def temp_and_humi(self, conf_temp, conf_humi):
         sensor = DHT('11', config.Config.TEMP_AND_HUM)
         humi, temp = sensor.read()
 
