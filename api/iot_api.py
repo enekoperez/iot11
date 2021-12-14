@@ -8,7 +8,7 @@ my_main_service = MainService()
 
 
 @iotApi.route('execute', methods=['GET'])
-def execute():
+async def execute():
     if request.is_json:
         my_main_service.main(request.json)
         return jsonify(message='ok'), 200

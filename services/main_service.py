@@ -10,7 +10,7 @@ class MainService:
     def ender(self):
         self.execution = False
 
-    async def main(self, request):  # DUDA, ¿ se podra poner aqui =None ?
+    def main(self, request):  # DUDA, ¿ se podra poner aqui =None ?
         conf_cerca = request['conf_distance_cerca']
         conf_lejos = request['conf_distance_lejos']
         conf_luz = request['conf_luz']
