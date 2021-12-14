@@ -22,6 +22,7 @@ def main():
 # !/usr/bin/env python
 
 from grove.grove_ryb_led_button import GroveLedButton
+import time
 
 
 def led():
