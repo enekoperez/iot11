@@ -21,7 +21,7 @@ class MainService:
         self.execution = True
         while self.execution:
             self.my_sensores.distance(conf_cerca=conf_cerca, conf_lejos=conf_lejos)
-            self.my_sensores.light(conf_luz=conf_luz)
+            # self.my_sensores.light(conf_luz=conf_luz)
             self.my_sensores.temp_and_humi(conf_temp=conf_temp, conf_humi=conf_humi)
 
         if self.execution is False:
