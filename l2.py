@@ -8,11 +8,12 @@ from grove.grove_ryb_led_button import GroveLedButton
 
 # from mraa import getGpioLookup
 # from upm import pyupm_buzzer as upmBuzzer
+import config
 
 
 def main():
     # Grove - LED Button connected to port D5
-    button = GroveLedButton(18)
+    button = GroveLedButton(config.Config.LED)
 
     # Grove - Buzzer connected to PWM port
     # buzzer = upmBuzzer.Buzzer(getGpioLookup('GPIO12'))

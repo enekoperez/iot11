@@ -17,7 +17,7 @@ class Sensores:
         self.my_data_sender = DataSender()
 
     def led(self, state):
-        ledbtn = GroveLedButton(18)
+        ledbtn = GroveLedButton(config.Config.LED)
 
         GPIO.remove_event_detect(18)
         # GPIO.remove_event_detect(ledbtn)
