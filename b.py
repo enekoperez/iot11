@@ -1,40 +1,16 @@
-#!/usr/bin/python
 import bluetooth
-import time
 
-HectorIN = 0
-HectorOUT = 0
+target_name = "My Phone"
+target_address = None
 
-print
-"In/Out Board"
+nearby_devices = bluetooth.discover_devices()
 
-while True:
-    print
-    "Buscando " + time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
-result = bluetooth.lookup_name('A0:18:28:59:XX:XX', timeout=5)
-if (result != None):
-    print
-    "Hector: in"
-if HectorIN == 0:
-    HectorIN = HectorIN + 1
-import subprocess
+for bdaddr in nearby_devices:
+    if target_name == bluetooth.lookup_name( bdaddr ):
+        target_address = bdaddr
+        break
 
-subprocess.call(['bash', '/home/pi/alarma_apaga.sh'])
-subprocess.call(['bash', '/home/pi/textoAvoz.sh', 'Bienvenido a casa Hector'])
-HectorOUT = 0
-time.sleep(300)
+if target_address is not None:
+    print "found target bluetooth device with address ", target_address
 else:
-print
-"Hector: out"
-HectorIN = 0
-HectorOUT = HectorOUT + 1
-print
-"Hector IN:"
-print
-HectorIN
-print
-"HectorOUT"
-print
-HectorOUT
-print
-"------"
+    print "could not find target bluetooth device nearby"
