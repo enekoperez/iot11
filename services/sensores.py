@@ -66,13 +66,14 @@ class Sensores:
         sensor = GroveUltrasonicRanger(config.Config.DISTANCE)  # 16
         distance = sensor.get_distance()
 
-        # llama a buzzer
-        if distance < int(conf_cerca):
-            self.buzz(out="distance_cerca")
-        elif int(conf_cerca) < distance < int(conf_lejos):
-            self.buzz(out="distance_media")
-        elif distance > int(conf_lejos):
-            self.buzz(out="distance_lejos")
+        if conf_cerca is not None and conf_lejos is not None:
+            # llama a buzzer
+            if distance < int(conf_cerca):
+                self.buzz(out="distance_cerca")
+            elif int(conf_cerca) < distance < int(conf_lejos):
+                self.buzz(out="distance_media")
+            elif distance > int(conf_lejos):
+                self.buzz(out="distance_lejos")
 
         # guarda en Corlysis
         self.my_data_sender.send_data(table_name='distance_data', key='key', value='value',
@@ -86,11 +87,12 @@ class Sensores:
         sensor = GroveLightSensor(config.Config.LIGHT)  # 0
         light = sensor.light
 
-        # enciende a apaga led
-        if light > int(conf_luz):
-            self.led(state=False)
-        elif light < int(conf_luz):
-            self.led(state=True)
+        if conf_luz is not None:
+            # enciende a apaga led
+            if light > int(conf_luz):
+                self.led(state=False)
+            elif light < int(conf_luz):
+                self.led(state=True)
 
         # guarda en Corlysis
         self.my_data_sender.send_data(table_name='light_data', key='key', value='value',
@@ -108,13 +110,14 @@ class Sensores:
         message1 = 'Temperature: {}C'.format(temp)
         message2 = 'Humidity: {}%'.format(humi)
 
-        # ensena los mensajes (si es necesario) en lcd
-        if temp > int(conf_temp) and humi > int(conf_humi):
-            self.lcd(message1=str(message1), message2=str(message2))
-        elif temp > int(conf_temp):
-            self.lcd(message1=str(message1))
-        elif humi > int(conf_humi):
-            self.lcd(message1=str(message2))
+        if conf_temp is not None and conf_humi is not None:
+            # ensena los mensajes (si es necesario) en lcd
+            if temp > int(conf_temp) and humi > int(conf_humi):
+                self.lcd(message1=str(message1), message2=str(message2))
+            elif temp > int(conf_temp):
+                self.lcd(message1=str(message1))
+            elif humi > int(conf_humi):
+                self.lcd(message1=str(message2))
 
         # guarda en Corlysis
         self.my_data_sender.send_data(table_name='temp_hum_data', key='key', value='value',
