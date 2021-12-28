@@ -42,21 +42,9 @@
 		},
 		{
 			"name": "ender",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://192.168.1.134:3000/iot/ender",
 					"protocol": "http",
@@ -123,21 +111,9 @@
 		},
 		{
 			"name": "light",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"conf_luz\":\"400\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://192.168.1.134:3000/iot/light",
 					"protocol": "http",
