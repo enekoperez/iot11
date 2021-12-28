@@ -56,8 +56,42 @@ Una vez abierto y ejecutado el fichero run.py, existen dos principales funcional
 
 Para ambas es necesario abrir Postman, importar el fichero JSON del proyecto *postman_vXX-XX-XXXX.json*. 
 
-Dentro de la coleccion *iot* existen varias posibilidades de *Request*, por ejemplo *execute*, donde la URL es *http://192.168.1.134:3000/iot/execute*. Es necesario cambiar, en este caso, 192.168.1.134 por la direccion IP de la Raspberry Pi.
+Dentro de la coleccion *iot* existen varias posibilidades de *request*, por ejemplo *execute*, donde la URL es *http://192.168.1.134:3000/iot/execute*. Es necesario cambiar, en este caso, 192.168.1.134 por la direccion IP de la Raspberry Pi.
 
 #### 1. Ejecucion continua
+La ejecucion continua trata de recibir informacion de los sensores, tratarlos y almacenarlos de forma ininterrumpida, para esto se debe ejecutar el *request* *execute* desde Postman.
+
+Este metodo permite establecer mediante JSON la configuracion para recibir los resultados y que los sensores actuen de distintas maneras, por ejemplo:
+```
+{
+    "conf_distance_cerca":"20",
+    "conf_distance_lejos":"60",
+    "conf_luz":"400",
+    "conf_temp":"25",
+    "conf_humi":"100"
+}
+```
+
+Cuando se quiera parar este proceso, se debe ejecutar el *request* *ender* desde Postman.
 
 #### 2. Llamadas a la API del proyecto
+El proyecto tambien permite recibir llamadas a cada sensor para devolver los datos que pueden proporcionar estos. Existe la posibilidad de llamar a los siguientes sensores:
+* Temperatura y humedad con el *request* *temp and hum* desde Postman, que devuelve por ejemplo:
+```
+{
+    "humi": 56,
+    "temp": 20
+}
+```
+* Distancia con el *request* *distance* desde Postman, que devuelve por ejemplo:
+```
+{
+    "distance": 215.7934780778556
+}
+```
+* Luz con el *request* *light* desde Postman, que devuelve por ejemplo:
+```
+{
+    "light": 609
+}
+```
