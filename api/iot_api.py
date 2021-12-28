@@ -40,8 +40,8 @@ def temp_and_humi():
         return jsonify(response), 200
 
 
-@iotApi.route('temp-and-humi', methods=['GET'])
-def temp_and_humi():
+@iotApi.route('light', methods=['GET'])
+def light():
     if request.is_json:
         conf_temp = request.json['conf_temp']
         conf_humi = request.json['conf_humi']
