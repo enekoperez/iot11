@@ -18,4 +18,4 @@ class Config(object):
     LIGHT = 0
     TEMP_AND_HUM = 5
     LED = 18
-    # LCD = 12C
+    # LCD = I2C

@@ -50,7 +50,7 @@ class Sensores:
     # metodo lcd
     def lcd(self, message1="", message2=""):
         # configura lcd
-        lcd = JHD1802()  # 12C
+        lcd = JHD1802()  # I2C
 
         # mensaje lcd superior
         lcd.setCursor(0, 0)
