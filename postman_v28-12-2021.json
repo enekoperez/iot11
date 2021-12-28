@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "0f330593-12fa-4e6f-ab62-edf2d0903fa1",
+		"name": "iot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "execute",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"conf_distance_cerca\":\"20\",\r\n    \"conf_distance_lejos\":\"60\",\r\n    \"conf_luz\":\"400\",\r\n    \"conf_temp\":\"25\",\r\n    \"conf_humi\":\"100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.134:3000/iot/execute",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"134"
+					],
+					"port": "3000",
+					"path": [
+						"iot",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ender",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.134:3000/iot/ender",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"134"
+					],
+					"port": "3000",
+					"path": [
+						"iot",
+						"ender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp and hum",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.134:3000/iot/temp-and-humi",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"134"
+					],
+					"port": "3000",
+					"path": [
+						"iot",
+						"temp-and-humi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "distance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.134:3000/iot/distance",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"134"
+					],
+					"port": "3000",
+					"path": [
+						"iot",
+						"distance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "light",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"conf_luz\":\"400\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.134:3000/iot/light",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"134"
+					],
+					"port": "3000",
+					"path": [
+						"iot",
+						"light"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
