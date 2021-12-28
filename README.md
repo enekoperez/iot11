@@ -34,9 +34,9 @@ Metodos que pueden ser llamados desde, por ejemplo, Postman.
 ### Routes
 Nombra las diferentes rutas principales para hacer llamadas a API. En este proyecto, solo usamos */iot/*. 
 ### Services
-* data_sender.py: recibe datos y los envía a Corlysis para que sean almacenados.
-* main_service.py: procesa la funcionalidad de "ejecución continua" llamando a los métodos de los sensores, también sirve para parar el proceso. 
-* sensores.py: es donde se recogen y se procesan los datos de los sensores.
+* *data_sender.py*: recibe datos y los envía a Corlysis para que sean almacenados.
+* *main_service.py*: procesa la funcionalidad de "ejecución continua" llamando a los métodos de los sensores, también sirve para parar el proceso. 
+* *sensores.py*: es donde se recogen y se procesan los datos de los sensores.
 ### config.py
 Se guardan los valores de las variables generales, por ejemplo el puerto para las llamadas de API, la URL de Corlysis o donde van conectados los sensores.
 ### run.py
@@ -66,7 +66,11 @@ Para prepararlo, hay que entrar con la Raspberry Pi en el directorio donde esta 
 ```
 cd iot11
 ```
-2. Para ejecutar el fichero:
+2. Para instalar las dependencias:
+```
+pip install -r requirements.txt
+```
+3. Para ejecutar el fichero:
 ```
 python3 run.py
 ```
