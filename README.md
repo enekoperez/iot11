@@ -5,6 +5,9 @@
 
 * Algunos ejemplos de estos sensores pueden ser los sensores de activación de luces automáticas, los sensores que miden la presión de los neumáticos (barómetro) o los sensores del nivel de combustible. El propósito fundamental de este sistema es tener la capacidad de manejar estos sensores y modificarlos a gusto del usuario/a.
 
+### Versión actual
+* En esta versión, 
+
 #### Caso de uso / escenario típico de la vida real para ilustrar la idea.
 
 * Basándose en el nivel de iluminación ambiente, el coche regula la luz de los faros.
@@ -27,8 +30,8 @@ Metodos que pueden ser llamados desde, por ejemplo, Postman.
 ### Routes
 Nombra las diferentes rutas principales para hacer llamadas a API. En este proyecto, solo usamos */iot/*. 
 ### Services
-* data_sender.py: recibe datos y los guarda en la base de datos de Corlysis.
-* main_service.py: procesa la funcionalidad de "ejecución continua", llama a los métodos de los sensores. 
+* data_sender.py: recibe datos y los envía a Corlysis para que sean almacenados.
+* main_service.py: procesa la funcionalidad de "ejecución continua" llamando a los métodos de los sensores, también sirve para parar el proceso. 
 * sensores.py: es donde se recogen y se procesan los datos de los sensores.
 ### config.py
 Se guardan los valores de las variables generales, por ejemplo el puerto para las llamadas de API, la URL de Corlysis o donde van conectados los sensores.
@@ -74,7 +77,7 @@ Para ambas es necesario abrir Postman, importar el fichero JSON del proyecto *po
 Dentro de la colección *iot* existen varias posibilidades de *request*, por ejemplo *execute*, donde la URL es *http://192.168.1.134:3000/iot/execute*. Es necesario cambiar, en este caso, 192.168.1.134 por la dirección IP de la Raspberry Pi.
 
 #### 1. Ejecución continua
-La ejecución continua trata de recibir información de los sensores, tratarlos y almacenarlos de forma ininterrumpida, para esto se debe ejecutar el *request* *execute* desde Postman.
+La ejecución continua trata de recibir información de los sensores, tratarlo y almacenarlo de forma ininterrumpida, para esto se debe ejecutar el *request* *execute* desde Postman.
 
 Este método permite establecer mediante JSON la configuración para recibir los resultados y que los sensores actúen de distintas maneras, por ejemplo:
 ```
@@ -86,6 +89,8 @@ Este método permite establecer mediante JSON la configuración para recibir los
     "conf_humi":"100"
 }
 ```
+* Todos los campos deben ser rellenados. 
+* La distancia está en centimetros, la temperatura en °C y el grado de humedad en porcentaje.
 
 Cuando se quiera parar este proceso, se debe ejecutar el *request* *ender* desde Postman.
 
