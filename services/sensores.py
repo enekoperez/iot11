@@ -16,10 +16,6 @@ class Sensores:
     def __init__(self):
         self.my_data_sender = DataSender()
 
-    def led2(self, state):
-        ledbtn = GroveLedButton(config.Config.LED)
-        ledbtn.led.light(state)
-
     def led(self, state):
         GPIO.setmode(GPIO.BCM)
         led = config.Config.LED
