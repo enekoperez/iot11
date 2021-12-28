@@ -27,27 +27,24 @@ def ender():
 # call API para recibir informacion de distancia
 @iotApi.route('distance', methods=['GET'])
 def distance():
-    if request.is_json:
-        conf_cerca = request.json['conf_distance_cerca']
-        conf_lejos = request.json['conf_distance_lejos']
-        response = my_sensores.distance(conf_cerca=conf_cerca, conf_lejos=conf_lejos)
-        return jsonify(response), 200
+    conf_cerca = None
+    conf_lejos = None
+    response = my_sensores.distance(conf_cerca=conf_cerca, conf_lejos=conf_lejos)
+    return jsonify(response), 200
 
 
 # call API para recibir informacion de temperatura y humedad
 @iotApi.route('temp-and-humi', methods=['GET'])
 def temp_and_humi():
-    if request.is_json:
-        conf_temp = request.json['conf_temp']
-        conf_humi = request.json['conf_humi']
-        response = my_sensores.temp_and_humi(conf_temp=conf_temp, conf_humi=conf_humi)
-        return jsonify(response), 200
+    conf_temp = None
+    conf_humi = None
+    response = my_sensores.temp_and_humi(conf_temp=conf_temp, conf_humi=conf_humi)
+    return jsonify(response), 200
 
 
 # call API para recibir informacion de luz
 @iotApi.route('light', methods=['GET'])
 def light():
-    if request.is_json:
-        conf_luz = request.json['conf_luz']
-        response = my_sensores.light(conf_luz=conf_luz)
-        return jsonify(response), 200
+    conf_luz = None
+    response = my_sensores.light(conf_luz=conf_luz)
+    return jsonify(response), 200
