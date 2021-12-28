@@ -29,7 +29,7 @@ def ender():
 def distance():
     conf_cerca = None
     conf_lejos = None
-    response = my_sensores.distance(conf_cerca=conf_cerca, conf_lejos=conf_lejos)
+    response = my_sensores.distance()
     return jsonify(response), 200
 
 
@@ -38,7 +38,7 @@ def distance():
 def temp_and_humi():
     conf_temp = None
     conf_humi = None
-    response = my_sensores.temp_and_humi(conf_temp=conf_temp, conf_humi=conf_humi)
+    response = my_sensores.temp_and_humi()
     return jsonify(response), 200
 
 
@@ -46,5 +46,5 @@ def temp_and_humi():
 @iotApi.route('light', methods=['GET'])
 def light():
     conf_luz = None
-    response = my_sensores.light(conf_luz=conf_luz)
+    response = my_sensores.light()
     return jsonify(response), 200
