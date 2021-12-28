@@ -9,6 +9,7 @@ my_main_service = MainService()
 my_sensores = Sensores()
 
 
+# call para ejecutar
 @iotApi.route('execute', methods=['GET'])
 def execute():
     if request.is_json:
@@ -16,12 +17,14 @@ def execute():
         return jsonify(message='ok'), 200
 
 
+# call para detener 'execute'
 @iotApi.route('ender', methods=['GET'])
 def ender():
     my_main_service.ender()
     return jsonify(message='ender done'), 200
 
 
+# call API para recibir informacion de distancia
 @iotApi.route('distance', methods=['GET'])
 def distance():
     if request.is_json:
@@ -31,6 +34,7 @@ def distance():
         return jsonify(response), 200
 
 
+# call API para recibir informacion de temperatura y humedad
 @iotApi.route('temp-and-humi', methods=['GET'])
 def temp_and_humi():
     if request.is_json:
@@ -40,6 +44,7 @@ def temp_and_humi():
         return jsonify(response), 200
 
 
+# call API para recibir informacion de luz
 @iotApi.route('light', methods=['GET'])
 def light():
     if request.is_json:
