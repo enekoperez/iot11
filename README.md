@@ -22,7 +22,8 @@
 
 ## Getting Started
 ### Prerequisitos
-* Raspberry
+* Python 3
+* Raspberry con Linux
 * Grove - Light Sensor V1.2
 * Grove - LCD Display (Blue and White)
 * Grove - Temperature and Humidity Sensor(DHT11)
@@ -31,20 +32,28 @@
 * Grove - Ultrasonic Ranger
 * Postman
 
-### x
-x
-1. xxx
+### Clonar proyecto
+* El proyecto se puede clonar desde el enlace *https://github.com/enekoperez/iot11* o desde laterminal con el siguiente comando:
 ```
-xxx
-```
-2. xxx
-```
-xxx
+git clone https://github.com/enekoperez/iot11
 ```
 
-### Building and running the project
-x
+### Getting Ready
+Para prepararlo, hay que entrar con la Raspberry en el directorio donde esta el proyecto y ejecutar el fichero run.py:
+1. Para abrir el directorio:
+```
+cd iot11
+```
+2. Para ejecutar el fichero:
+```
+python3 run.py
+```
 
-#### 1. Install the project
+### Ejectuar el proyecto
+Una vez abierto y ejecutado el fichero run.py, existen dos principales funcionalidades: 
+* Ejecucion continua
+* Llamadas a la API del proyecto
 
-#### 2.  Run the client app
+#### 1. Ejecucion continua
+
+#### 2. Llamadas a la API del proyecto
