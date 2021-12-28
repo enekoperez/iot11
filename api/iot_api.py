@@ -21,6 +21,25 @@ def ender():
     my_main_service.ender()
     return jsonify(message='ender done'), 200
 
+
+@iotApi.route('distance', methods=['GET'])
+def distance():
+    if request.is_json:
+        conf_cerca = request.json['conf_distance_cerca']
+        conf_lejos = request.json['conf_distance_lejos']
+        response = my_sensores.distance(conf_cerca=conf_cerca, conf_lejos=conf_lejos)
+        return jsonify(response), 200
+
+
+@iotApi.route('temp-and-humi', methods=['GET'])
+def temp_and_humi():
+    if request.is_json:
+        conf_temp = request.json['conf_temp']
+        conf_humi = request.json['conf_humi']
+        response = my_sensores.temp_and_humi(conf_temp=conf_temp, conf_humi=conf_humi)
+        return jsonify(response), 200
+
+
 @iotApi.route('temp-and-humi', methods=['GET'])
 def temp_and_humi():
     if request.is_json:
