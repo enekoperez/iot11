@@ -5,9 +5,6 @@
 
 * Algunos ejemplos de estos sensores pueden ser los sensores de activación de luces automáticas, los sensores que miden la presión de los neumáticos (barómetro) o los sensores del nivel de combustible. El propósito fundamental de este sistema es tener la capacidad de manejar estos sensores y modificarlos a gusto del usuario/a.
 
-### Versión actual
-* En esta versión, 
-
 #### Caso de uso / escenario típico de la vida real para ilustrar la idea.
 
 * Basándose en el nivel de iluminación ambiente, el coche regula la luz de los faros.
@@ -22,6 +19,13 @@
 * Configuración de sensores: Cuando empieza a limpiar, a cuanta distancia suenan los sensores de proximidad o a cuanta temperatura empieza a calentar el modo automático.
 * Los datos de los sensores se visualizan en la pantalla del coche para poder monitorearlos y saber las condiciones actuales de ellos, cosa que no se suele ver en la mayoría de sistemas de vehículos que no sean gama alta.
 * Ayuda a mejorar el consumo de energía del vehículo, que hoy en día dada la transición a coches eléctricos tiende a ser importante y aunque existen no suelen estar disponibles para el usuario.
+
+### Versión actual (11/01/2022)
+En esta versión, se ejecuta el proyecto y se puede hacer uso de dos funcionalidades mediante llamadas REST por Postman:
+* Una de ellas percibe a través de los sensores de temperatura y humedad, distancia y luz, y dependiendo de la configuración establecida responde mediante mensajes escritos en una pantalla LCD, zumbidos y la luz de un led respectivamente.   
+* La otra funcionalidad sirve para que te devuelva la información que captan los sensores de temperatura y humedad, distancia y luz.
+
+Además, guarda los datos recibidos por los sensores en la base de datos de Corlysis y es posible visualizarlos en Grafana.
 
 ## Arquitectura
 Un breve resumen de la estructura de clases:
@@ -90,7 +94,7 @@ Este método permite establecer mediante JSON la configuración para recibir los
 }
 ```
 * Todos los campos deben ser rellenados. 
-* La distancia está en centimetros, la temperatura en °C y el grado de humedad en porcentaje.
+* La distancia está en centímetros, la temperatura en °C y el grado de humedad en porcentaje.
 
 Cuando se quiera parar este proceso, se debe ejecutar el *request* *ender* desde Postman.
 
@@ -115,4 +119,3 @@ El proyecto también permite recibir llamadas a cada sensor para devolver los da
     "light": 609
 }
 ```
-
