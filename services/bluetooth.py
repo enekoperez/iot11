@@ -5,15 +5,12 @@ import serial
 
 
 def running_commands():
-    pro = subprocess.run('/home/pi/iot11/bt.sh')
+    pro = subprocess.run('sudo rfcomm watch hci0')
     print(pro.returncode)
     if int(pro.returncode) == 0:
         print("pass")
     else:
         print("fail")
-
-    sleep(10)
-
 
 def send_b(data):
     data = str(data)
