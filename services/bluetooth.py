@@ -1,5 +1,11 @@
 import subprocess
 
+def running_commands():
+	pro= subprocess.run('/home/pi/bt.sh')
+	print(pro.returncode)
+	if int(pro.returncode)==0:
+		print("pass")
+	else:
+		print("fail")
 
-class Bluetooth:
-    subprocess.run('iot11\bt.sh')
+running_commands()
