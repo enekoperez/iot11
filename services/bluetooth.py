@@ -12,12 +12,13 @@ def running_commands():
     else:
         print("fail")
 
+    sleep(10)
 
-# running_commands()
-#sleep(10)
+    data = str(0)
+    b = bytes(data, 'utf-8')
+    ser = serial.Serial('/dev/rfcomm0')
+    ser.isOpen()
+    ser.write(b)
 
-data = str(0)
-b = bytes(data, 'utf-8')
-ser = serial.Serial('/dev/rfcomm0')
-ser.isOpen()
-ser.write(b)
+running_commands()
+
