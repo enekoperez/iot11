@@ -1,3 +1,5 @@
+import subprocess
+
 from flask import Flask, app
 
 import config
@@ -12,6 +14,7 @@ def get_flask_app() -> app.Flask:
     flask_app = Flask(__name__)
     flask_app.config.from_object("config.Config")
     routes.init_routes(flask_app)
+    subprocess.run('sudo rfcomm watch hci0')
     return flask_app
 
 
