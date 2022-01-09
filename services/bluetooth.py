@@ -14,11 +14,14 @@ def running_commands():
 
     sleep(10)
 
-    data = str(0)
+
+def send_b(data):
+    data = str(data)
     b = bytes(data, 'utf-8')
     ser = serial.Serial('/dev/rfcomm0')
     ser.isOpen()
     ser.write(b)
 
 running_commands()
+
 
