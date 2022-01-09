@@ -12,6 +12,7 @@ def running_commands():
     else:
         print("fail")
 
+
 def send_b(data):
     data = str(data)
     b = bytes(data, 'utf-8')
