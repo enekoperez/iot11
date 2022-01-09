@@ -22,6 +22,6 @@ def send_b(data):
     ser.isOpen()
     ser.write(b)
 
-running_commands()
+
 
 
