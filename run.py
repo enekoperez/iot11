@@ -15,7 +15,7 @@ def get_flask_app() -> app.Flask:
     flask_app = Flask(__name__)
     flask_app.config.from_object("config.Config")
     routes.init_routes(flask_app)
-    subprocess.call("sudo rfcomm watch hci0", shell=True)
+    subprocess.call("iot11/bt.sh &", shell=True)
     return flask_app
 
 
