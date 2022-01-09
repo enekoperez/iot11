@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 
-from services.bluetooth import send_b
+from services.bluetooth_service import BluetoothService
 from services.main_service import MainService
 from services.sensores import Sensores
 
@@ -8,6 +8,7 @@ iotApi = Blueprint('iotApi', __name__)
 
 my_main_service = MainService()
 my_sensores = Sensores()
+my_bluetooth_service = BluetoothService()
 
 
 # call para ejecutar
@@ -29,7 +30,7 @@ def ender():
 @iotApi.route('distance', methods=['GET'])
 def distance():
     response = my_sensores.distance()
-    send_b(received_data=str(response))
+    my_bluetooth_service.send_b(received_data=str(response))
     return jsonify(response), 200
 
 
@@ -37,7 +38,7 @@ def distance():
 @iotApi.route('temp-and-humi', methods=['GET'])
 def temp_and_humi():
     response = my_sensores.temp_and_humi()
-    send_b(received_data=str(response))
+    my_bluetooth_service.send_b(received_data=str(response))
     return jsonify(response), 200
 
 
@@ -45,5 +46,5 @@ def temp_and_humi():
 @iotApi.route('light', methods=['GET'])
 def light():
     response = my_sensores.light()
-    send_b(received_data=str(response))
+    my_bluetooth_service.send_b(received_data=str(response))
     return jsonify(response), 200
