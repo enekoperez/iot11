@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 
+from services.bluetooth import send_b
 from services.main_service import MainService
 from services.sensores import Sensores
 
@@ -28,6 +29,7 @@ def ender():
 @iotApi.route('distance', methods=['GET'])
 def distance():
     response = my_sensores.distance()
+    send_b(str(response))
     return jsonify(response), 200
 
 
