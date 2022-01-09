@@ -3,7 +3,6 @@ from time import sleep
 import RPi.GPIO as GPIO
 from grove.display.jhd1802 import JHD1802
 from grove.grove_light_sensor_v1_2 import GroveLightSensor
-from grove.grove_ryb_led_button import GroveLedButton
 from grove.grove_ultrasonic_ranger import GroveUltrasonicRanger
 from seeed_dht import DHT
 
