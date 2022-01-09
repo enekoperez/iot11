@@ -14,7 +14,7 @@ def running_commands():
 
 
 running_commands()
-sleep(10)
+#sleep(10)
 
 data = str(0)
 b = bytes(data, 'utf-8')
