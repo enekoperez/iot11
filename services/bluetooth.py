@@ -13,7 +13,7 @@ def running_commands():
         print("fail")
 
 
-running_commands()
+# running_commands()
 #sleep(10)
 
 data = str(0)
