@@ -13,12 +13,12 @@ def running_commands():
         print("fail")
 
 
-def send_b(data):
-    data = str(data)
-    b = bytes(data, 'utf-8')
+def send_b(received_data):
+    received_data = str(received_data)
+    to_send_data = received_data.encode('utf-8')
     ser = serial.Serial('/dev/rfcomm0')
     ser.isOpen()
-    ser.write(b)
+    ser.write(to_send_data)
 
 
 
