@@ -14,7 +14,7 @@ def get_flask_app() -> app.Flask:
     flask_app = Flask(__name__)
     flask_app.config.from_object("config.Config")
     routes.init_routes(flask_app)
-    subprocess.call("./bt.sh &", shell=True)
+    subprocess.call("./bt.sh &", shell=True)  # runs in parallel bt.sh script
     return flask_app
 
 
