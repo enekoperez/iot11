@@ -123,3 +123,10 @@ El proyecto también permite recibir llamadas a cada sensor para devolver los da
     "light": 609
 }
 ```
+
+### Bluetooth
+* El bluetooth funciona a través de la librería bluez y utilizando pybluez para conectar el bluetooth de la raspberri pi con el bluetooth del móvil a una aplicación llamada (serial bluetooth) para poder enviar texto, o en nuestro caso encoded text para pasar las variables de los sensores al móvil por bluetooth en caso de necesitar una medición puntual del sensor.
+
+* Hay que tener en cuenta que hemos de emparejar los dispositivos antes de realizar cualquiera de estos pasos, desde las raspberri pi al móvil.
+
+* Para poder realizar la conexión, tenemos que ejecutar el programa python que abre una terminal en raspian desde la raspberri pi que abre un puerto a una conexión para enlazar el bluetooth serial a nuestro móvil. Desde esta aplicación pulsamos en la raspi para terminar de conectar y formar el vínculo bluetooth. Una vez realizado el vínculo, al ejecutar el sensor desde el programa que contiene el bluetooth añadido en linea de código (la llamada al método), se enviará la medición de este sensor al móvil.
