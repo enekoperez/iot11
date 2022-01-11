@@ -10,7 +10,7 @@ class Config(object):
     CORLYSIS_URL = "https://corlysis.com:8086/write"
     CORLYSIS_DATABASE = "iot1"
     CORLYSIS_USER = "token"
-    CORLYSIS_PASSWORD = "a00797325b77d4c7be48a932b2172177"
+    CORLYSIS_PASSWORD = "69f21f860158fa0463a01769ee07746b"
 
     # SENSORES
     BUZZER = 26
