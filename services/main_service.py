@@ -1,3 +1,5 @@
+import subprocess
+
 from services.sensores import Sensores
 
 
@@ -33,3 +35,5 @@ class MainService:
             self.my_sensores.lcd(message1="", message2="")
             self.my_sensores.led(state=False)
             self.my_sensores.buzz(out="distance_lejos")
+            # turns off bluetooth
+            subprocess.call("sudo rfkill block bluetooth", shell=True)  # runs in parallel
